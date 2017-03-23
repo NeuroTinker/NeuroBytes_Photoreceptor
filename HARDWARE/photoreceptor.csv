@@ -1,0 +1,30 @@
+Title,Photoreceptor
+Revision,DRAFT
+Date,2017-03-04
+Generated,Sat 04 Mar 2017 02:17:53 PM CST
+Company,NeuroTinker LLC
+Comment 1,
+Comment 2,
+Comment 3,
+Comment 4,
+Total Parts,19
+Total Unique Parts,9
+
+
+
+Ref,Qty,Value,RoHS,Subs Allowed,
+C4 C5 C6 C2 C3 C1 ,6,C,Yes,No
+D1 D2 ,2,LED,Yes,No
+P3 ,1,CONN_01X07,Yes,No
+P2 P1 ,2,CONN_01X04,Yes,No
+R2 R1 R3 ,3,R,Yes,No
+SW2 SW1 ,2,SW_PUSH,Yes,No
+U2 ,1,STM32L011Gx,Yes,No
+U3 ,1,LD3985M33R,Yes,No
+U1 ,1,APDS9007,Yes,No
+
+
+
+
+BOM made with KICAD_BOM_WIZARD (https://github.com/HashDefineElectronics/KiCad_BOM_Wizard.git)
+Generated Sat 04 Mar 2017 02:17:53 PM CST
