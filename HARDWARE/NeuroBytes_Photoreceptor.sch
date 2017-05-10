@@ -682,7 +682,7 @@ Wire Wire Line
 	3200 5700 3200 6050
 Wire Wire Line
 	2900 6050 2900 5700
-Text GLabel 5600 1900 2    60   Input ~ 0
+Text GLabel 5600 3700 2    60   Input ~ 0
 SENSE
 Wire Wire Line
 	1900 3100 1900 2800
@@ -795,8 +795,6 @@ Wire Wire Line
 Wire Wire Line
 	2700 2650 2900 2650
 Wire Wire Line
-	5600 1900 5300 1900
-Wire Wire Line
 	5600 1750 5300 1750
 Wire Wire Line
 	2700 2800 2900 2800
@@ -827,4 +825,6 @@ Wire Wire Line
 Wire Wire Line
 	6800 3500 6500 3500
 Connection ~ 6500 3500
+Wire Wire Line
+	5600 3700 5300 3700
 $EndSCHEMATC
