@@ -109,20 +109,21 @@ void gpio_setup(void)
 	/*	Set up LED pins:
 		Alternative Function Mode with no pullup/pulldown
 		Output options: push-pull, high speed
-		PIN_LED_LIGHT (PB0): AF2, TIM2_CH2
-		PIN_LED_DARK (PA5): AF5, TIM2_CH1 */
+		PIN_LED_LIGHT (PB7): AF5, TIM2_CH4
+		PIN_LED_DARK (PA2): AF2, TIM2_CH3 */
 	gpio_mode_setup(PORT_LED_LIGHT, GPIO_MODE_AF, GPIO_PUPD_NONE, PIN_LED_LIGHT);
 	gpio_mode_setup(PORT_LED_DARK, GPIO_MODE_AF, GPIO_PUPD_NONE, PIN_LED_DARK);
 	gpio_set_output_options(PORT_LED_LIGHT, GPIO_OTYPE_PP, GPIO_OSPEED_HIGH, PIN_LED_LIGHT);
 	gpio_set_output_options(PORT_LED_DARK, GPIO_OTYPE_PP, GPIO_OSPEED_HIGH, PIN_LED_DARK);
-	gpio_set_af(PORT_LED_LIGHT, GPIO_AF2, PIN_LED_LIGHT);
-	gpio_set_af(PORT_LED_DARK, GPIO_AF5, PIN_LED_DARK);
+	gpio_set_af(PORT_LED_LIGHT, GPIO_AF5, PIN_LED_LIGHT);
+	gpio_set_af(PORT_LED_DARK, GPIO_AF2, PIN_LED_DARK);
 
 	/*	Set up ADC input */
 	gpio_mode_setup(PORT_SENSE, GPIO_MODE_ANALOG, GPIO_PUPD_NONE, PIN_SENSE);
 
 	/*	Set up button inputs */
-	gpio_mode_setup(PORT_BUTTONS, GPIO_MODE_INPUT, GPIO_PUPD_PULLDOWN, PIN_SPAN | PIN_ZERO);
+	gpio_mode_setup(PORT_ZERO, GPIO_MODE_INPUT, GPIO_PUPD_PULLDOWN, PIN_ZERO);
+	gpio_mode_setup(PORT_SPAN, GPIO_MODE_INPUT, GPIO_PUPD_PULLDOWN, PIN_SPAN);
 }
 
 void tim_setup(void)
@@ -140,17 +141,17 @@ void tim_setup(void)
 	/* 	Set timer period to 9600: 5 kHz PWM with 9600 steps */
 	timer_set_period(TIM2, 9600);
 
-	/* 	Set TIM2 Output Compare mode to PWM1 on channels 1 and 2 */ 
-	timer_set_oc_mode(TIM2, TIM_OC1, TIM_OCM_PWM1);
-	timer_set_oc_mode(TIM2, TIM_OC2, TIM_OCM_PWM1);
+	/* 	Set TIM2 Output Compare mode to PWM1 on channels 3 and 4 */ 
+	timer_set_oc_mode(TIM2, TIM_OC3, TIM_OCM_PWM1);
+	timer_set_oc_mode(TIM2, TIM_OC4, TIM_OCM_PWM1);
 
 	/* 	Set starting output compare values */
-	timer_set_oc_value(TIM2, TIM_OC1, 0);
-	timer_set_oc_value(TIM2, TIM_OC2, 0);
+	timer_set_oc_value(TIM2, TIM_OC3, 0);
+	timer_set_oc_value(TIM2, TIM_OC4, 0);
 
 	/* 	Enable outputs */ 
-	timer_enable_oc_output(TIM2, TIM_OC1);
-	timer_enable_oc_output(TIM2, TIM_OC2);
+	timer_enable_oc_output(TIM2, TIM_OC3);
+	timer_enable_oc_output(TIM2, TIM_OC4);
 	
 	/*	Enable counter */
 	timer_enable_counter(TIM2);
@@ -158,7 +159,7 @@ void tim_setup(void)
 
 void adc_setup(void)
 {
-	/*	Light sensor is on PA1 (ADC1) */
+	/*	Light sensor is on PB1 (ADC_IN9 on ADC1) */
 	
 	int i;
 
@@ -176,8 +177,8 @@ void adc_setup(void)
 	adc_set_resolution(ADC1, ADC_CFGR1_RES_12_BIT);
 
 	/*	adc_set_regular_sequence(adc, length, channel[]) isn't working, so this snippit
-		_should_ set up channel 1. */	
-	MMIO32((ADC1) + 0x28) = 1 << 1;
+		_should_ set up channel 9. */	
+	MMIO32((ADC1) + 0x28) |= 1 << 9; //ADC channel selection register (ADC_CHSELR)
 
 	/*	Turn on ADC and wait a bit */
 	adc_power_on(ADC1);
@@ -194,22 +195,22 @@ void setLED(uint8_t led, uint16_t val)
 	{
 		if (led == 0) 
 		{
-			timer_set_oc_value(TIM2, TIM_OC1, gamma_lookup[val]);
+			timer_set_oc_value(TIM2, TIM_OC3, gamma_lookup[val]);
 		}
 		if (led == 1)
 		{
-			timer_set_oc_value(TIM2, TIM_OC2, gamma_lookup[val]);
+			timer_set_oc_value(TIM2, TIM_OC4, gamma_lookup[val]);
 		}
 	}
 	else 
 	{
 		if (led == 0) 
 		{
-			timer_set_oc_value(TIM2, TIM_OC1, 9600);
+			timer_set_oc_value(TIM2, TIM_OC3, 9600);
 		}
 		if (led == 1)
 		{
-			timer_set_oc_value(TIM2, TIM_OC2, 9600);
+			timer_set_oc_value(TIM2, TIM_OC4, 9600);
 		}
 	}
 }
@@ -220,10 +221,10 @@ uint8_t readButton(uint8_t button)
 	switch(button)
 	{
 		case 0:
-			return (gpio_get(PORT_BUTTONS, PIN_ZERO) > 0);
+			return (gpio_get(PORT_ZERO, PIN_ZERO) > 0);
 			break;
 		case 1:
-			return (gpio_get(PORT_BUTTONS, PIN_SPAN) > 0);
+			return (gpio_get(PORT_SPAN, PIN_SPAN) > 0);
 			break;	
 	}
 }

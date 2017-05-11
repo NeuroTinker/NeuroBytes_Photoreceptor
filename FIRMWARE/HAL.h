@@ -2,22 +2,26 @@
 #define HAL_H_
 
 #define PORT_LED_LIGHT	GPIOB
-#define PIN_LED_LIGHT	GPIO0
+#define PIN_LED_LIGHT	GPIO7
 
 #define PORT_LED_DARK	GPIOA
-#define PIN_LED_DARK	GPIO5
+#define PIN_LED_DARK	GPIO2
 
-#define PORT_LIGHT_OUT	GPIOB
-#define PIN_LIGHT_OUT	GPIO1
+#define PORT_LIGHT_OUT	GPIOC
+#define PIN_LIGHT_EX	GPIO15
+#define PIN_LIGHT_IN	GPIO14
 
 #define PORT_DARK_OUT	GPIOA
-#define PIN_DARK_OUT	GPIO4
+#define PIN_DARK_OUT_EX	GPIO1
+#define PIN_DARK_OUT_IN	GPIO0
 
-#define PORT_BUTTONS	GPIOA
-#define PIN_SPAN		GPIO2
-#define PIN_ZERO		GPIO3
+#define PORT_SPAN		GPIOB
+#define PIN_SPAN		GPIO0
 
-#define PORT_SENSE		GPIOA
+#define PORT_ZERO		GPIOA
+#define PIN_ZERO		GPIO10
+
+#define PORT_SENSE		GPIOB
 #define PIN_SENSE		GPIO1
 
 extern volatile uint8_t tick;
