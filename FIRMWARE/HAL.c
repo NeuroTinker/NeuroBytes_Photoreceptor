@@ -1,13 +1,8 @@
-#include <libopencm3/stm32/rcc.h>
-#include <libopencm3/stm32/gpio.h>
-#include <libopencm3/stm32/timer.h>
-#include <libopencm3/stm32/adc.h>
-#include <libopencm3/cm3/nvic.h>
-#include <libopencm3/cm3/systick.h>
-
 #include "HAL.h"
+#include "comm.h"
 
 volatile uint8_t tick = 0;
+volatile uint8_t main_tick = 0;
 
 uint8_t channel_array[] =  {1, 1, 1};
 
@@ -106,6 +101,8 @@ void gpio_setup(void)
 	rcc_periph_clock_enable(RCC_GPIOB);
 	rcc_periph_clock_enable(RCC_GPIOC);
 
+	rcc_peripheral_enable_clock(&RCC_APB2ENR, RCC_APB2ENR_SYSCFGEN); // clk for exti 
+
 	/*	Set up LED pins:
 		Alternative Function Mode with no pullup/pulldown
 		Output options: push-pull, high speed
@@ -124,6 +121,65 @@ void gpio_setup(void)
 	/*	Set up button inputs */
 	gpio_mode_setup(PORT_ZERO, GPIO_MODE_INPUT, GPIO_PUPD_PULLDOWN, PIN_ZERO);
 	gpio_mode_setup(PORT_SPAN, GPIO_MODE_INPUT, GPIO_PUPD_PULLDOWN, PIN_SPAN);
+
+	// Set up axons
+	/*
+	gpio_mode_setup(PORT_DARK_OUT, GPIO_MODE_OUTPUT, GPIO_PUPD_PULLDOWN, PIN_DARK_OUT_EX);
+	gpio_mode_setup(PORT_DARK_OUT, GPIO_MODE_OUTPUT, GPIO_PUPD_PULLDOWN, PIN_DARK_OUT_IN);
+	gpio_mode_setup(PORT_LIGHT_OUT, GPIO_MODE_OUTPUT, GPIO_PUPD_PULLDOWN, PIN_LIGHT_EX);
+	gpio_mode_setup(PORT_LIGHT_OUT, GPIO_MODE_OUTPUT, GPIO_PUPD_PULLDOWN, PIN_LIGHT_IN);
+	*/
+	setAsInput(PORT_DARK_OUT, PIN_DARK_IN);
+	setAsInput(PORT_LIGHT_OUT, PIN_LIGHT_IN);
+	setAsOutput(PORT_DARK_OUT, PIN_DARK_EX);
+	setAsOutput(PORT_LIGHT_OUT, PIN_LIGHT_EX);
+
+	nvic_enable_irq(NVIC_EXTI0_1_IRQ);
+	nvic_enable_irq(NVIC_EXTI2_3_IRQ);
+	nvic_enable_irq(NVIC_EXTI4_15_IRQ);
+
+	nvic_set_priority(NVIC_EXTI0_1_IRQ, 0);
+	nvic_set_priority(NVIC_EXTI2_3_IRQ, 0);
+	nvic_set_priority(NVIC_EXTI4_15_IRQ, 0);
+}
+
+void setAsInput(uint32_t port, uint32_t pin)
+{
+	// setup gpio as an input pin
+	gpio_mode_setup(port, GPIO_MODE_INPUT, GPIO_PUPD_PULLDOWN, pin);
+
+	// setup interrupt for the pin going high
+	exti_select_source(pin, port);
+	exti_set_trigger(pin, EXTI_TRIGGER_RISING);
+	exti_enable_request(pin);
+	exti_reset_request(pin);
+}
+
+void setAsOutput(uint32_t port, uint32_t pin)
+{
+	// disable input interrupts
+	exti_disable_request(pin);
+
+	// setup gpio as an output pin. pulldown
+	gpio_mode_setup(port, GPIO_MODE_OUTPUT, GPIO_PUPD_PULLDOWN, pin);
+}
+
+void exti0_1_isr(void)
+{
+	// interrupt handler for pin 0 (dark in)
+	if ((EXTI_PR & PIN_DARK_IN) != 0){
+		active_input_pins[0] = PIN_DARK_IN;
+		EXTI_PR |= PIN_DARK_IN; // clear interrupt flag
+	}
+}
+
+void exti14_15_isr(void)
+{
+	// interrupt handler for pin 14 (light in)
+	if ((EXTI_PR & PIN_LIGHT_IN) != 0){
+		active_input_pins[1] = PIN_LIGHT_IN;
+		EXTI_PR |= PIN_LIGHT_IN; // clear interrupt flag
+	}
 }
 
 void tim_setup(void)
@@ -155,6 +211,42 @@ void tim_setup(void)
 	
 	/*	Enable counter */
 	timer_enable_counter(TIM2);
+	
+	// setup TIM21
+
+	MMIO32((RCC_BASE) + 0x34) |= (1<<2); //Enable TIM21
+    MMIO32((RCC_BASE) + 0x24) |= (1<<2); //Set reset bit, TIM21
+    MMIO32((RCC_BASE) + 0x24) &= ~(1<<2); //Clear reset bit, TIM21
+
+    /*    TIM21 control register 1 (TIMx_CR1): */
+    MMIO32((TIM21_BASE) + 0x00) &= ~((1<<5) | (1<<6)); //Edge-aligned (default setting)
+    MMIO32((TIM21_BASE) + 0x00) &= ~((1<<9) | (1<<10)); //No clock division (default setting)
+    MMIO32((TIM21_BASE) + 0x00) &= ~(1<<4); //Up direction (default setting)
+           
+    /*    TIM21 interrupt enable register (TIMx_DIER): */
+    MMIO32((TIM21_BASE) + 0x0C) |= (1<<0); //Enable update interrupts
+
+    /*    TIM21 prescaler (TIMx_PSC): */
+    MMIO32((TIM21_BASE) + 0x28) = 7; //prescaler = clk/8 (see datasheet, they add one for convenience)
+
+    /*    TIM21 auto-reload register (TIMx_ARR): */
+    MMIO32((TIM21_BASE) + 0x2C) = 200; //100 us interrupts (with clk/8 prescaler)
+   
+    /*    Enable TIM21 counter: */
+    MMIO32((TIM21_BASE) + 0x00) |= (1<<0);
+
+	nvic_enable_irq(NVIC_TIM21_IRQ);
+    nvic_set_priority(NVIC_TIM21_IRQ, 1);
+}
+
+void tim21_isr(void)
+{
+	main_tick = 1;
+
+	readInputs();
+	write();
+
+	MMIO32((TIM21_BASE) + 0x10) &= ~(1<<0); //clear the interrupt register
 }
 
 void adc_setup(void)
