@@ -827,4 +827,7 @@ Wire Wire Line
 Connection ~ 6500 3500
 Wire Wire Line
 	5600 3700 5300 3700
+NoConn ~ 9500 3550
+Text Label -2850 3100 0    60   ~ 0
+s
 $EndSCHEMATC
