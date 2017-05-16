@@ -1,30 +1,34 @@
-Title,Photoreceptor
-Revision,DRAFT
-Date,2017-03-04
-Generated,Sat 04 Mar 2017 02:17:53 PM CST
-Company,NeuroTinker LLC
-Comment 1,
-Comment 2,
-Comment 3,
-Comment 4,
-Total Parts,19
-Total Unique Parts,9
-
-
-
-Ref,Qty,Value,RoHS,Subs Allowed,
-C4 C5 C6 C2 C3 C1 ,6,C,Yes,No
-D1 D2 ,2,LED,Yes,No
-P3 ,1,CONN_01X07,Yes,No
-P2 P1 ,2,CONN_01X04,Yes,No
-R2 R1 R3 ,3,R,Yes,No
-SW2 SW1 ,2,SW_PUSH,Yes,No
-U2 ,1,STM32L011Gx,Yes,No
-U3 ,1,LD3985M33R,Yes,No
-U1 ,1,APDS9007,Yes,No
-
-
-
-
-BOM made with KICAD_BOM_WIZARD (https://github.com/HashDefineElectronics/KiCad_BOM_Wizard.git)
-Generated Sat 04 Mar 2017 02:17:53 PM CST
+Title,Photoreceptor,,,,,,,
+Revision,D,,,,,,,
+Date,2017-05-16,,,,,,,
+Generated,Tue 16 May 2017 10:10:15 AM CDT,,,,,,,
+Company,NeuroTinker LLC,,,,,,,
+Comment 1,License: GPL v3,,,,,,,
+Comment 2,,,,,,,,
+Comment 3,,,,,,,,
+Comment 4,,,,,,,,
+Total Parts,21,,,,,,,
+Total Unique Parts,13,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+Ref,Qty,Value,Link,Mfr,Mfr Part #,Package,RoHS,Subs Allowed
+C4 C5 C3 ,3,1 uF,https://www.digikey.com/product-detail/en/taiyo-yuden/LMK107B7105KA-T/587-1242-2-ND/930594,Taiyo Yuden,LMK107B7105KA-T,0603,Yes,Yes
+C6 C2 C1 ,3,100 nF,https://www.digikey.com/product-detail/en/taiyo-yuden/LMK105BJ104KV-F/587-1227-2-ND/930579,Taiyo Yuden,LMK105BJ104KV-F,0402,Yes,Yes
+C7 ,1,10 uF,https://www.digikey.com/product-detail/en/kemet/T491A106K010AT/399-3684-2-ND/818545,Kemet,T491A106K010AT,1206,Yes,Yes
+D1 D2 ,2,LED,https://www.digikey.com/product-detail/en/rohm-semiconductor/SCMP13WBC8W1/846-1111-1-ND/3973666,Rohm Semiconductor,SCMP13WBC8W1,2SMD,Yes,No
+P3 ,1,CONN_01X07,https://www.digikey.com/product-detail/en/jst-sales-america-inc/SM07B-GHS-TB(LF)(SN)/455-1569-1-ND/807837,JST,SM07B-GHS-TB(LF)(SN),SMT,Yes,No
+P2 P1 ,2,CONN_01X04,N/A (NeuroTinker supplied),JST,SM04B-GHS-GD-TB(LF)(SN),SMT,Yes,No
+R2 R3 ,2,10,https://www.digikey.com/product-detail/en/yageo/RC0402FR-0710RL/311-10.0LRCT-ND/729471,Yageo,RC0402FR-0710RL,402,Yes,Yes
+R1 ,1,27k,https://www.digikey.com/product-detail/en/yageo/RC0402FR-0727KL/311-27.0KLRCT-ND/729521,Yageo,RC0402FR-0727KL,402,Yes,Yes
+R4 ,1,Jumper (0 ohm),https://www.digikey.com/product-detail/en/yageo/RC0402JR-070RL/311-0.0JRTR-ND/726406,Yageo,RC0402JR-070RL,402,Yes,Yes
+SW2 SW1 ,2,SW_PUSH,https://www.digikey.com/product-detail/en/citizen/LS38J2-T/1642-1316-1-ND/5820731,Citizen,LS38J2-T,SMT,Yes,No
+U2 ,1,STM32L011Gx,N/A (NeuroTinker supplied),ST Microelectronics,STM32L011G4U6,28-UFQFN,Yes,No
+U3 ,1,LDO_LD3985M33R,https://www.digikey.com/product-detail/en/stmicroelectronics/LD3985M33R/497-3504-1-ND/669344,ST Microelectronics,LD3985M33R,SOT-23-5,Yes,No
+U1 ,1,APDS9007,https://www.digikey.com/product-detail/en/broadcom-limited/APDS-9007-020/516-1719-1-ND/1785439,Broadcom Limited,APDS-9007-020,6-SMD,Yes,No
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+BOM made with KICAD_BOM_WIZARD (https://github.com/HashDefineElectronics/KiCad_BOM_Wizard.git),,,,,,,,
+Generated Tue 16 May 2017 10:10:15 AM CDT,,,,,,,,
