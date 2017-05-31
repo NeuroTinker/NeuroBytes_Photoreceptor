@@ -1,30 +1,30 @@
-### Module positions - created on Tue May 16 09:37:54 2017 ###
+### Module positions - created on Tue May 23 16:54:02 2017 ###
 ### Printed by Pcbnew version kicad 4.0.5-e0-6337~49~ubuntu14.04.1
 ## Unit = mm, Angle = deg.
 ## Side : All
 # Ref     Val              Package                      PosX       PosY       Rot  Side
-C1        C                ZF_SMD_NonPol_0402_cap    10.8000    13.4000   -0.0000  bottom
-C2        C                ZF_SMD_NonPol_0402_cap    41.7000    10.2500    0.0000  bottom
-C3        C                ZF_SMD_NonPol_0603        10.8000    15.0000   -0.0000  bottom
-C4        C                ZF_SMD_NonPol_0603        28.2500    14.5000  270.0000  bottom
-C5        C                ZF_SMD_NonPol_0603        32.7500    14.5000   90.0000  bottom
-C6        C                ZF_SMD_NonPol_0402_cap    32.8000    11.2000  270.0000  bottom
-C7        CP               ZF_SMD_pol_1206           14.1000    15.0000  270.0000  bottom
+C1        100 nF           ZF_SMD_NonPol_0402_cap    10.8000    13.4000    0.0000  bottom
+C2        100 nF           ZF_SMD_NonPol_0402_cap    41.7000    10.2500    0.0000  bottom
+C3        1 uF             ZF_SMD_NonPol_0603        10.8000    15.0000    0.0000  bottom
+C4        1 uF             ZF_SMD_NonPol_0603        28.2500    14.5000  270.0000  bottom
+C5        1 uF             ZF_SMD_NonPol_0603        32.7500    14.5000   90.0000  bottom
+C6        100 nF           ZF_SMD_NonPol_0402_cap    32.8000    11.2000  270.0000  bottom
+C7        10 uF            ZF_SMD_pol_1206           14.1000    15.0000  270.0000  bottom
 P1        CONN_01X04       ZF_CONN_JST_GH            43.9000    14.8000   45.0000  bottom
 P2        CONN_01X04       ZF_CONN_JST_GH            43.9000     5.6000  315.0000  bottom
 P3        CONN_01X07       ZF_CONN_JST_GH_7POS       21.9000    11.6000  255.0000  bottom
-R1        R                ZF_SMD_NonPol_0402        10.8000    16.7000   -0.0000  bottom
-R2        R                ZF_SMD_NonPol_0402        39.5000    14.4000  225.0000  bottom
-R3        R                ZF_SMD_NonPol_0402        39.5000     6.0000  135.0000  bottom
-R4        R                ZF_SMD_NonPol_0402        40.2000    12.9000  135.0000  bottom
-REF**     ZF_Fiducial-1mm  ZF_Fiducial-1mm           17.1000    16.5000   -0.0000  bottom
-REF**     ZF_Fiducial-1mm  ZF_Fiducial-1mm           38.5000    16.5000   -0.0000  bottom
+R1        27k              ZF_SMD_NonPol_0402        10.8000    16.7000    0.0000  bottom
+R2        10               ZF_SMD_NonPol_0402        39.5000    14.4000  225.0000  bottom
+R3        10               ZF_SMD_NonPol_0402        39.5000     6.0000  135.0000  bottom
+R4        JMP              ZF_SMD_NonPol_0402        40.2000    12.9000  135.0000  bottom
+REF**     ZF_Fiducial-1mm  ZF_Fiducial-1mm           17.1000    16.5000    0.0000  bottom
+REF**     ZF_Fiducial-1mm  ZF_Fiducial-1mm           38.5000    16.5000    0.0000  bottom
 U2        STM32L011Gx      ZF_IC_UFQFPN28-050        37.0000    10.2500  270.0000  bottom
-U3        LD3985M33R       ZF_SOT23-5L               30.5000    14.5000   -0.0000  bottom
+U3        LD3985M33R       ZF_SOT23-5L               30.5000    14.5000    0.0000  bottom
 D1        LED              ZF_SMD_NonPol_0402        44.8000    15.8000  135.0000  top
 D2        LED              ZF_SMD_NonPol_0402        44.8000     4.6000  225.0000  top
 G***      LOGO             ZF_LOGO_Photoreceptor      5.0000    15.0000    0.0000  top
-SW1       SW_PUSH          ZF_SW_LS38                32.6000     9.7500  180.0000  top
-SW2       SW_PUSH          ZF_SW_LS38                38.5000     7.7500    0.0000  top
+SW1       SW_PUSH          ZF_SW_EVP-AA              32.6000     9.8000  180.0000  top
+SW2       SW_PUSH          ZF_SW_EVP-AA              38.5000     7.8000    0.0000  top
 U1        APDS9007         ZF_SENSOR_APDS-9007        5.0000    15.0000  270.0000  top
 ## End

@@ -36,10 +36,10 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "Photoreceptor"
-Date "2017-03-04"
-Rev "DRAFT"
+Date "2017-05-16"
+Rev "D"
 Comp "NeuroTinker LLC"
-Comment1 "Ordered 6 boards 3/4/2017 (3 large, 3 small)"
+Comment1 "License: GPL v3"
 Comment2 ""
 Comment3 ""
 Comment4 ""
