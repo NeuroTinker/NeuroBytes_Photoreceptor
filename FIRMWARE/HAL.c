@@ -1,6 +1,7 @@
 #include "HAL.h"
 #include "comm.h"
 
+
 volatile uint8_t tick = 0;
 volatile uint8_t main_tick = 0;
 
@@ -319,4 +320,25 @@ uint8_t readButton(uint8_t button)
 			return (gpio_get(PORT_SPAN, PIN_SPAN) > 0);
 			break;	
 	}
+}
+
+void eepromProgram(uint32_t address, uint32_t data)
+{
+	// unlock by setting PELOCK and PRGLOCK to 0
+	/*
+	MMIO32(FLASH_MEM_INTERFACE_BASE + FLASH_PEKEYR) = FLASH_PEKEY1;
+	MMIO32(FLASH_MEM_INTERFACE_BASE + FLASH_PEKEYR) = FLASH_PEKEY2;
+	MMIO32(FLASH_MEM_INTERFACE_BASE + FLASH_PRGKEYR) = FLASH_PRGKEY1;
+	MMIO32(FLASH_MEM_INTERFACE_BASE + FLASH_PRGKEYR) = FLASH_PRGKEY2;
+	*/
+	//MMIO32(FLASH_MEM_INTERFACE_BASE + 0x04) |= 0b00; // PRGLOCK | PELOCK
+	///FLASH_PECR &= ~FLASH_PECR_FTDW;
+	MMIO32(address) = data;
+	// lock by setting PELOCK and PRGLOCK to 1
+	//MMIO32(FLASH_MEM_INTERFACE_BASE + 0x04) |= 0b11; // PRGLOCK | PELOCK
+}
+
+uint32_t eepromRead(uint32_t address)
+{
+	return MMIO32(address);
 }

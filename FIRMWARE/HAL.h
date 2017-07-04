@@ -8,6 +8,7 @@
 #include <libopencm3/cm3/systick.h>
 #include <libopencm3/stm32/exti.h>
 #include <libopencm3/stm32/adc.h>
+//#include <libopencm3/stm32/flash_common_f234.h>
 
 
 #include "comm.h"
@@ -35,6 +36,16 @@
 #define PORT_SENSE		GPIOB
 #define PIN_SENSE		GPIO1
 
+#define EEPROM_ADDRESS  0x08080000 // 0x08000080 & 0x08080000
+#define SPAN_ADDRESS    EEPROM_ADDRESS + 0x20
+#define ZERO_ADDRESS    EEPROM_ADDRESS + 0x00
+#define FLASH_PRGKEY1   0x8C9DAEBF
+#define FLASH_PRGKEY2   0x13141516
+#define FLASH_PRGKEYR   0x10
+#define FLASH_PEKEY1    0x89ABCDEF
+#define FLASH_PEKEY2    0x02030405
+#define FLASH_PEKEYR    0x0C
+
 extern volatile uint8_t tick;
 extern volatile uint8_t main_tick;
 
@@ -47,5 +58,7 @@ void setLED(uint8_t led, uint16_t val);
 void setAsInput(uint32_t port, uint32_t pin);
 void setAsOutput(uint32_t port, uint32_t pin);
 uint8_t readButton(uint8_t button);
+void eepromProgram(uint32_t address, uint32_t data);
+uint32_t eepromRead(uint32_t address);
 
 #endif

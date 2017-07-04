@@ -10,9 +10,9 @@
 #include "comm.h"
 #include "HAL.h"
 
-#define MAX_FIRE_TIME	5000 // 1000 ms
+#define MAX_FIRE_TIME	6000 
 #define	MIN_FIRE_TIME	1000	 // 200 ms
-#define FIRE_TIME_RANGE	6000 // 1200 ms
+#define FIRE_TIME_RANGE	8000 // 1200 ms
 
 #define BLINK_TIME			100
 #define DATA_TIME			10
@@ -56,6 +56,9 @@ int main(void)
 	int light_fire_time = 0;
 	int fire_time = 0;
 
+	uint8_t dark_fire_flag = 0;
+	uint8_t light_fire_flag = 0;
+
 	int zero = 450;
 	int span = 1450;
 
@@ -66,7 +69,21 @@ int main(void)
 	tim_setup();
 	adc_setup();
 	systick_setup(100000); // tick @ 0.1 ms
-	
+
+	MMIO32(FLASH_MEM_INTERFACE_BASE + FLASH_PEKEYR) = FLASH_PEKEY1;
+	MMIO32(FLASH_MEM_INTERFACE_BASE + FLASH_PEKEYR) = FLASH_PEKEY2;
+	MMIO32(FLASH_MEM_INTERFACE_BASE + FLASH_PRGKEYR) = FLASH_PRGKEY1;
+	MMIO32(FLASH_MEM_INTERFACE_BASE + FLASH_PRGKEYR) = FLASH_PRGKEY2;
+
+	int eeprom_zero = eepromRead(ZERO_ADDRESS);
+	if (eeprom_zero != 0){
+		zero = eeprom_zero;
+	}
+	int eeprom_span = eepromRead(SPAN_ADDRESS);
+	if (eeprom_span != 0){
+		span = eeprom_span;
+	}
+
 	for(;;)
 	{
 		if (main_tick == 1){
@@ -80,35 +97,47 @@ int main(void)
 			if (readButton(0) > 0)
 			{
 				zero = temp;
+				eepromProgram(ZERO_ADDRESS, zero);
 			}
 
 			if (readButton(1) > 0)
 			{
 				span = temp;
+				eepromProgram(SPAN_ADDRESS, span);
 			}
 
 			output = scale10bit(temp, zero, span);
 
 			if (dark_fire_time == 0){
+				if (dark_fire_flag == 1){
+					dark_fire_flag = 0;
+					addWrite(DOWNSTREAM_BUFF, PULSE_MESSAGE);
+					downstream_port[downstream_port_i] = 1;
+					downstream_port_i += 1;
+				}
 				dark_fire_time = MIN_FIRE_TIME + ((FIRE_TIME_RANGE * output) / 1023);
-				addWrite(DOWNSTREAM_BUFF, PULSE_MESSAGE);
-				downstream_port[downstream_port_i] = 1;
-				downstream_port_i += 1;
+				if (dark_fire_time < MAX_FIRE_TIME)
+					dark_fire_flag = 1;
 			} else {
 				dark_fire_time -= 1;
 			}
 
 			if (light_fire_time == 0){
+				if (light_fire_flag == 1){
+					light_fire_flag = 0;
+					addWrite(DOWNSTREAM_BUFF, PULSE_MESSAGE);
+					downstream_port[downstream_port_i] = 2;
+					downstream_port_i += 1;
+				}
 				light_fire_time = MIN_FIRE_TIME + ((FIRE_TIME_RANGE * (1023-output)) / 1023);
-				addWrite(DOWNSTREAM_BUFF, PULSE_MESSAGE);
-				downstream_port[downstream_port_i] = 2;
-				downstream_port_i += 1;
+				if (light_fire_time < MAX_FIRE_TIME)
+					light_fire_flag = 1;
 			} else {
 				light_fire_time -= 1;
 			}
 
-			setLED(0, 1023 - output); // dark led
-			setLED(1, output); // light led
+			setLED(0, (1023 - output) / 5); // dark led
+			setLED(1, output / 5); // light led
 		
 
 			if (nid_ping_time == 0){
@@ -125,29 +154,6 @@ int main(void)
 				downstream_port_i += 1;
 				send_ping_time = 0;
 			}
-
-			// TODO: add identify button functionality
-			/*
-			if (nid_channel != 0){
-				if (data_time++ > DATA_TIME){
-					data_time = 0;
-					//message = DATA_MESSAGE | (nid_channel << 19) | (uint16_t) neuron.potential | (nid_keep_alive << 22);
-					message = DATA_MESSAGE | (uint16_t) output | (nid_channel << 19) | (nid_keep_alive << 22);
-					addWrite(NID_BUFF,message);
-				}
-			}
-
-			if (blink_flag != 0){
-				setLED(0, 1023);
-				setLED(1, 1023);
-				blink_time = 1;
-				blink_flag = 0;
-			} else if (blink_time > 0){
-				if (++blink_time == BLINK_TIME){
-					blink_time = 0;
-				}
-			}
-			*/
 
 		}
 	}
