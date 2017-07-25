@@ -21,6 +21,13 @@
 #define SEND_PING_TIME		2000
 #define BUTTON_PRESS_TIME	2
 
+static uint32_t fingerprint[4] __attribute__((section (".fingerprint"))) __attribute__ ((__used__)) = {
+	2,
+	1,
+	5,
+	1
+};
+
 int temp, output;
 
 int scale10bit(int val, int zero, int span) 
