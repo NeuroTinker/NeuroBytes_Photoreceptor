@@ -322,6 +322,7 @@ void write()
 void writeDownstream(void)
 {
     uint32_t value;
+    uint32_t i;
     //value = downstream_write_buffer | 0b1;
     //value = (downstream_write_buffer >> 31) | 0b1;
     value = write_buffer.downstream[0] & 0x80000000;
@@ -347,9 +348,15 @@ void writeDownstream(void)
         case 3:
             if (value != 0){
                 gpio_set(PORT_DARK_OUT, PIN_DARK_EX);
+                for (i=0; i<100; i++){
+                    __asm__("NOP");
+                }
                 gpio_set(PORT_LIGHT_OUT, PIN_LIGHT_EX);
             }else{
                 gpio_clear(PORT_DARK_OUT, PIN_DARK_EX);
+                for (i=0; i<100; i++){
+                    __asm__("NOP");
+                }
                 gpio_clear(PORT_LIGHT_OUT, PIN_LIGHT_EX);
             }
             break;
