@@ -1,7 +1,7 @@
 Title,Photoreceptor
 Revision,D
 Date,2017-05-16
-Generated,Wed 31 May 2017 05:06:24 PM CDT
+Generated,Fri 22 Sep 2017 05:44:07 PM CDT
 Company,NeuroTinker LLC
 Comment 1,License: GPL v3
 Comment 2,
@@ -12,23 +12,23 @@ Total Unique Parts,13
 
 
 
-Ref,Qty,Value,Mfr Part #,Package,RoHS,Subs Allowed,
-C4 C5 C3 ,3,1 uF,MF-CAP-0603-1uF,C0603,Yes,Yes
-C6 C2 C1 ,3,0u1,MF-CAP-0402-0.1uF,C0402,Yes,Yes
-C7 ,1,10u,MF-CAP-1206-10uF,C1206,Yes,No
-D1 D2 ,2,LED,SCMP13WBC8W1,2SMD,Yes,No
-P3 ,1,JST_GH_7-POS,SM07B-GHS-TB(LF)(SN),JST_GH_7-POS,Yes,No
-P2 P1 ,2,JST_GH_4-POS,SM04B-GHS-GD-TB(LF)(SN),JST_GH_4-POS,Yes,No
-R2 R3 ,2,10,MF-RES-0402-10,R0402,Yes,Yes
-R1 ,1,10k,MF-RES-0402-10K,R0402,Yes,Yes
-R4 ,1,JMP,MF-RES-0402-0,R0402,Yes,Yes
-SW2 SW1 ,2,SW_PB_4term,MF-SW-TACT-4.2MM,4SMD,Yes,No
-U2 ,1,STM32L011Gx,STM32L011G4U6,UFQFPN28,Yes,No
-U3 ,1,LD3985M33R,MF-REG-SOT235-3.3V-300mA,SOT23-5L,Yes,No
-U1 ,1,APDS9007,APDS-9007-020,6SMD,Yes,No
+Ref,Qty,Value,Link,Mfr,Mfr Part #,Package,RoHS,Subs Allowed,
+C4 C5 C3 ,3,1u,https://www.digikey.com/product-detail/en/taiyo-yuden/LMK107B7105KA-T/587-1242-2-ND/930594,Taiyo Yuden,LMK107B7105KA-T,C0603,Yes,Yes
+C2 C6 C1 ,3,0u1,https://www.digikey.com/product-detail/en/taiyo-yuden/LMK105BJ104KV-F/587-1227-2-ND/930579,Taiyo Yuden,LMK105BJ104KV-F,C0402,Yes,Yes
+C7 ,1,10u,https://www.digikey.com/product-detail/en/taiyo-yuden/EMK316B7106KL-TD/587-2395-2-ND/2178914,Taiyo Yuden,EMK316B7106KL-TD,C1206,Yes,Yes
+D1 D2 ,2,LED,https://www.digikey.com/product-detail/en/rohm-semiconductor/SCMP13WBC8W1/846-1111-2-ND/3973663,Rohm Semiconductor,SCMP13WBC8W1,2SMD,Yes,No
+P1 P2 ,2,JST_GH_4-POS,https://www.digikey.com/product-detail/en/jst-sales-america-inc/SM04B-GHS-TB-LF-SN/455-1566-2-ND/807788,JST,SM04B-GHS-TB(LF)(SN),SMT,Yes,No
+P3 ,1,JST_GH_5-pos,https://www.digikey.com/product-detail/en/jst-sales-america-inc/SM05B-GHS-TB-LF-SN/455-1567-2-ND/807789,JST,SM05B-GHS-TB(LF)(SN),SMT,Yes,No
+R2 R3 ,2,10,https://www.digikey.com/product-detail/en/yageo/RC0402FR-0710RL/311-10.0LRTR-ND/726524,Yageo,RC0402FR-0710RL,R0402,Yes,Yes
+R1 ,1,10k,https://www.digikey.com/product-detail/en/yageo/RC0402FR-0710KL/311-10.0KLRTR-ND/726523,Yageo,RC0402FR-0710KL,R0402,Yes,Yes
+R4 ,1,JMP,https://www.digikey.com/product-detail/en/yageo/RC0402JR-070RL/311-0.0JRTR-ND/726406,Yageo,RC0402JR-070RL,R0402,Yes,Yes
+SW2 SW1 ,2,SW_PB_4term,https://www.digikey.com/product-detail/en/c-k/PTS810-SJM-250-SMTR-LFS/CKN10502TR-ND/4176610,C&K,PTS810 SJM 250 SMTR LFS,4SMD,Yes,No
+U2 ,1,STM32L011Gx,http://www.mouser.com/ProductDetail/STMicroelectronics/STM32L011G4U6/?qs=sGAEpiMZZMuoKKEcg8mMKFZaGHZhaFFC%252b5Ex1OjcSxhBnExI6VEL3Q%3d%3d,ST Microelectronics,STM32L011G4U6,UFQFPN28,Yes,No
+U3 ,1,3v3 LDO,https://www.digikey.com/product-detail/en/on-semiconductor/NCP114BSN330T1G/NCP114BSN330T1GOSTR-ND/6560606,ON Semiconductor,NCP114BSN330T1G,SOT23-5L,Yes,Yes
+U1 ,1,APDS9007,https://www.digikey.com/product-detail/en/broadcom-limited/APDS-9007-020/516-1719-2-ND/1785429,Broadcom,APDS-9007-020,6SMD,Yes,No
 
 
 
 
 BOM made with KICAD_BOM_WIZARD (https://github.com/HashDefineElectronics/KiCad_BOM_Wizard.git)
-Generated Wed 31 May 2017 05:06:24 PM CDT
+Generated Fri 22 Sep 2017 05:44:07 PM CDT
