@@ -255,7 +255,7 @@ void addWrite(message_buffers_t buffer, uint32_t message)
     }
 }
 
-void write()
+void writeBit()
 {
     uint8_t i;
     if (write_buffer.write_count == 33){
