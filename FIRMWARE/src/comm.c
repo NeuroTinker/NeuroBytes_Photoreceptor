@@ -192,7 +192,7 @@ void readInputs(void)
                             setAsOutput(nid_port_out, nid_pin_out);
                             */
                         if (active_input_pins[i] == nid_pin){
-                            nid_ping_time = NID_PING_TIME;
+                            //nid_ping_time = NID_PING_TIME;
                             if (keep_alive > 0){
                                 addWrite(ALL_BUFF, message_buffer[i]);
                                 write_buffer.source_pin = i;
@@ -291,7 +291,7 @@ void writeBit()
             write_buffer.downstream_port = downstream_port[0];
             downstream_port[0] = downstream_port[1];
             downstream_port[1] = downstream_port[2];
-            if (downstream_port_i >= 0){
+            if (downstream_port_i > 0){
                 downstream_port_i -= 1;
             }
         } else if (write_buffer.nid_ready_count != 0){

@@ -78,19 +78,19 @@ static const uint16_t gamma_lookup[1024] = {
 
 void sys_tick_handler(void)
 {
+	
 	if (++tick >= 50){
 		main_tick = 1;
 		tick = 0;
 	}
-
+	
 	if (read_tick++ >= 2){
 		writeBit();
 		read_tick = 0;
 	}
-
+	
 	//readBit(read_tick);
 	
-    MMIO32((TIM21_BASE) + 0x10) &= ~(1<<0); //clear the interrupt register
 }
 
 void systick_setup(int freq) 
@@ -150,9 +150,9 @@ void gpio_setup(void)
 	setAsOutput(PORT_DARK_OUT, PIN_DARK_EX);
 	setAsOutput(PORT_LIGHT_OUT, PIN_LIGHT_EX);
 
-	nvic_enable_irq(NVIC_EXTI0_1_IRQ);
-	nvic_enable_irq(NVIC_EXTI2_3_IRQ);
-	nvic_enable_irq(NVIC_EXTI4_15_IRQ);
+	//nvic_enable_irq(NVIC_EXTI0_1_IRQ);
+	//nvic_enable_irq(NVIC_EXTI2_3_IRQ);
+	//nvic_enable_irq(NVIC_EXTI4_15_IRQ);
 
 	nvic_set_priority(NVIC_EXTI0_1_IRQ, 0);
 	nvic_set_priority(NVIC_EXTI2_3_IRQ, 0);
@@ -257,10 +257,9 @@ void tim_setup(void)
 
 void tim21_isr(void)
 {
-	main_tick = 1;
+	//main_tick = 1;
 
-	readInputs();
-	write();
+	//readInputs();
 
 	MMIO32((TIM21_BASE) + 0x10) &= ~(1<<0); //clear the interrupt register
 }
