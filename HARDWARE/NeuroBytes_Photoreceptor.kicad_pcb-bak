@@ -1,9 +1,9 @@
-(kicad_pcb (version 4) (host pcbnew 4.0.7-e1-6374~58~ubuntu14.04.1)
+(kicad_pcb (version 4) (host pcbnew 4.0.7-e2-6376~58~ubuntu14.04.1)
 
   (general
     (links 62)
     (no_connects 0)
-    (area 152 73.8 248.857146 152.55)
+    (area 149.78 73.8 246.637146 167.5)
     (thickness 1.6)
     (drawings 222)
     (tracks 271)
@@ -12,13 +12,15 @@
     (nets 37)
   )
 
-  (page A4)
+  (page A)
   (title_block
     (title "NeuroBytes Photoreceptor")
-    (date 2017-05-23)
-    (rev D)
+    (date 2017-10-03)
+    (rev E)
     (company "NeuroTinker, LLC")
-    (comment 1 "License: GPL v3")
+    (comment 1 "(C) 2017 Zach Fredin")
+    (comment 2 "Drawing No. ZF-11554")
+    (comment 3 "License: CC-BY-SA 4.0")
   )
 
   (layers
@@ -1762,7 +1764,7 @@
   (gr_line (start 208.5 105.5) (end 208.7 105.7) (layer F.SilkS) (width 0.2))
   (gr_line (start 164.78 97.04) (end 164.78 113.43) (layer Cmts.User) (width 0.1))
   (gr_line (start 205.28 109.95) (end 159.11 109.95) (layer Cmts.User) (width 0.1))
-  (gr_text "NOTES:\n1. FOOTPRINTS ORIENTED PER IPC-7351FC LEVEL B (PIN 1 IN LOWER LEFT)\n2. COMPONENT ROTATION IN DEGREES COUNTER-CLOCKWISE\n3. NOTE COMPONENTS ARE MOUNTED ON BOTH F.CU AND B.CU LAYER\n4. PCB IS 1.6mm FR4 RATED FOR ROHS REFLOW, 10Z COPPER, ENIG FINISH\n5. MATTE BLACK SOLDER MASK WITH WHITE SILKSCREEN\n6. SOLDER PASTE MUST BE ROHS COMPLIANT (LEAD-FREE)\n7. NO MARKS (E-TEST, QA, SERIAL NUMBER, ETC) ON FRONT (LOGO SIDE) OF BOARD\n8. BOARDS TO BE SHIPPED IN CUSTOMER-SUPPLIED FOAM TRAYS" (at 152 141) (layer F.Fab)
+  (gr_text "NOTES:\n1. FOOTPRINTS ORIENTED PER IPC-7351FC LEVEL B (PIN 1 IN LOWER LEFT)\n2. COMPONENT ROTATION IN DEGREES COUNTER-CLOCKWISE\n3. NOTE COMPONENTS ARE MOUNTED ON BOTH F.CU AND B.CU LAYER\n4. PCB IS 1.6mm FR4 RATED FOR ROHS REFLOW, 10Z COPPER, ENIG FINISH\n5. MATTE BLACK SOLDER MASK WITH WHITE SILKSCREEN\n6. SOLDER PASTE MUST BE ROHS COMPLIANT (LEAD-FREE)\n7. NO MARKS (E-TEST, QA, SERIAL NUMBER, ETC) ON FRONT (LOGO SIDE) OF BOARD\n8. BOARDS TO BE SHIPPED IN CUSTOMER-SUPPLIED FOAM TRAYS" (at 149.78 147.45) (layer F.Fab)
     (effects (font (size 1.5 1.5) (thickness 0.3)) (justify left))
   )
   (gr_line (start 167 112) (end 166 112) (layer F.Fab) (width 0.2))
@@ -2042,7 +2044,7 @@
   (segment (start 197.2 96.05) (end 195.75 97.5) (width 0.5) (layer B.Cu) (net 1))
   (segment (start 199.280483 93.819517) (end 197.2 95.9) (width 0.5) (layer F.Cu) (net 1))
   (via (at 197.2 95.9) (size 0.6) (drill 0.4) (layers F.Cu B.Cu) (net 1))
-  (via (at 199.280483 93.819517) (size 0.6) (drill 0.4) (layers F.Cu B.Cu) (net 1) (status 1000000))
+  (via (at 199.280483 93.819517) (size 0.6) (drill 0.4) (layers F.Cu B.Cu) (net 1))
   (segment (start 171.8 94.6) (end 173.050012 93.349988) (width 0.2) (layer B.Cu) (net 1))
   (segment (start 173.050012 93.349988) (end 176.024988 93.349988) (width 0.2) (layer B.Cu) (net 1))
   (segment (start 176.024988 93.349988) (end 177.1 94.425) (width 0.2) (layer B.Cu) (net 1))
