@@ -75,6 +75,8 @@ int main(void)
 	tim_setup();
 	adc_setup();
 	systick_setup(100000); // tick @ 0.1 ms
+	
+	// setup eeprom
 
 	MMIO32(FLASH_MEM_INTERFACE_BASE + FLASH_PEKEYR) = FLASH_PEKEY1;
 	MMIO32(FLASH_MEM_INTERFACE_BASE + FLASH_PEKEYR) = FLASH_PEKEY2;
