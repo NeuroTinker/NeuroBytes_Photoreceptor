@@ -1,24 +1,26 @@
-(kicad_pcb (version 4) (host pcbnew 4.0.5-e0-6337~49~ubuntu14.04.1)
+(kicad_pcb (version 4) (host pcbnew 4.0.7-e2-6376~58~ubuntu14.04.1)
 
   (general
-    (links 0)
+    (links 62)
     (no_connects 0)
-    (area 164.733488 90.077587 211.583735 110.008306)
+    (area 149.78 73.8 246.637146 159)
     (thickness 1.6)
-    (drawings 220)
+    (drawings 222)
     (tracks 271)
     (zones 0)
     (modules 24)
     (nets 37)
   )
 
-  (page A4)
+  (page A)
   (title_block
     (title "NeuroBytes Photoreceptor")
-    (date 2017-05-23)
-    (rev D)
+    (date 2017-10-03)
+    (rev E)
     (company "NeuroTinker, LLC")
-    (comment 1 "License: GPL v3")
+    (comment 1 "(C) 2017 Zach Fredin")
+    (comment 2 "Drawing No. ZF-11554")
+    (comment 3 "License: CC-BY-SA 4.0")
   )
 
   (layers
@@ -67,13 +69,14 @@
     (mod_edge_width 0.15)
     (mod_text_size 1 1)
     (mod_text_width 0.15)
-    (pad_size 1 1)
+    (pad_size 1 2.7)
     (pad_drill 0)
     (pad_to_mask_clearance 0)
     (aux_axis_origin 164.78 109.95)
+    (grid_origin 164.78 109.95)
     (visible_elements FFFFFF7F)
     (pcbplotparams
-      (layerselection 0x00020_00000000)
+      (layerselection 0x200fc_80000001)
       (usegerberextensions false)
       (excludeedgelayer true)
       (linewidth 0.100000)
@@ -96,7 +99,7 @@
       (mirror false)
       (drillshape 0)
       (scaleselection 1)
-      (outputdirectory NeuroTinker_NeuroBytes_Photoreceptor_RFQ_05312017_Macrofab/))
+      (outputdirectory /home/zach/Desktop/))
   )
 
   (net 0 "")
@@ -195,9 +198,9 @@
       (solder_mask_margin 1) (clearance 1))
   )
 
-  (module KiCad_Footprints:ZF_CONN_JST_GH (layer B.Cu) (tedit 598DF7C3) (tstamp 58BA1A7F)
+  (module KiCad_Footprints:ZF_CONN_JST_GH (layer B.Cu) (tedit 59C592A6) (tstamp 58BA1A7F)
     (at 206.4 104.85 315)
-    (path /58B9CB2F)
+    (path /59C5ADA0)
     (attr smd)
     (fp_text reference P2 (at 0.7 0 315) (layer B.Fab)
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
@@ -1360,7 +1363,7 @@
 
   (module KiCad_Footprints:ZF_SMD_NonPol_0402 (layer F.Cu) (tedit 591B0B98) (tstamp 590A6098)
     (at 207.8 106.4 225)
-    (path /58BA06ED)
+    (path /59C5B540)
     (attr smd)
     (fp_text reference D2 (at 0.29038 1.209619 540) (layer F.Fab)
       (effects (font (size 1 1) (thickness 0.15)))
@@ -1423,7 +1426,7 @@
 
   (module KiCad_Footprints:ZF_SMD_NonPol_0402_cap (layer B.Cu) (tedit 591B0C39) (tstamp 590A606E)
     (at 173.8 97.6)
-    (path /58B9E214)
+    (path /59C5C3FB)
     (attr smd)
     (fp_text reference C1 (at -0.05 1.15) (layer B.Fab)
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
@@ -1444,12 +1447,12 @@
 
   (module KiCad_Footprints:ZF_SMD_NonPol_0603 (layer B.Cu) (tedit 591B0C64) (tstamp 590A607A)
     (at 173.8 96)
-    (path /58B9DF47)
+    (path /59C5C295)
     (attr smd)
     (fp_text reference C3 (at -2.55 0) (layer B.Fab)
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
     )
-    (fp_text value "1 uF" (at 0 4.7) (layer B.Fab) hide
+    (fp_text value 1u (at 0 4.7) (layer B.Fab) hide
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
     )
     (pad 1 smd rect (at -1 0) (size 1 1.2) (layers B.Cu B.Paste B.Mask)
@@ -1465,7 +1468,7 @@
     (fp_text reference C4 (at 0 1.5 360) (layer B.Fab)
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
     )
-    (fp_text value "1 uF" (at 0 4.7 270) (layer B.Fab) hide
+    (fp_text value 1u (at 0 4.7 270) (layer B.Fab) hide
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
     )
     (pad 1 smd rect (at -1 0 270) (size 1 1.2) (layers B.Cu B.Paste B.Mask)
@@ -1482,7 +1485,7 @@
     (fp_text reference U3 (at 0 -2.5) (layer B.Fab)
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
     )
-    (fp_text value LD3985M33R (at 0 3.5) (layer B.Fab) hide
+    (fp_text value "3v3 LDO" (at 0 3.5) (layer B.Fab) hide
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
     )
     (pad 2 smd rect (at 0 -1.15 180) (size 0.6 1.2) (layers B.Cu B.Paste B.Mask)
@@ -1499,12 +1502,12 @@
 
   (module KiCad_Footprints:ZF_SMD_NonPol_0603 (layer B.Cu) (tedit 591B0C64) (tstamp 590A6086)
     (at 195.75 96.5 90)
-    (path /58B9B04F)
+    (path /59C5C1B0)
     (attr smd)
     (fp_text reference C5 (at -0.25 1.5 180) (layer B.Fab)
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
     )
-    (fp_text value "1 uF" (at 0 4.7 90) (layer B.Fab) hide
+    (fp_text value 1u (at 0 4.7 90) (layer B.Fab) hide
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
     )
     (pad 1 smd rect (at -1 0 90) (size 1 1.2) (layers B.Cu B.Paste B.Mask)
@@ -1557,7 +1560,7 @@
 
   (module KiCad_Footprints:ZF_SMD_NonPol_0402 (layer B.Cu) (tedit 591B0B98) (tstamp 590A60AA)
     (at 202.5 105 135)
-    (path /58BA07B8)
+    (path /59C5B40E)
     (attr smd)
     (fp_text reference R3 (at 0.176777 -1.237437 180) (layer B.Fab)
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
@@ -1578,7 +1581,7 @@
 
   (module KiCad_Footprints:ZF_SMD_NonPol_0402_cap (layer B.Cu) (tedit 591B0C39) (tstamp 590A608C)
     (at 195.8 99.8 270)
-    (path /58B9B26B)
+    (path /59C5A01C)
     (attr smd)
     (fp_text reference C6 (at 0.45 1.3 360) (layer B.Fab)
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
@@ -1640,7 +1643,8 @@
 
   (module KiCad_Footprints:ZF_SW_PTS810 (layer F.Cu) (tedit 592F2DEF) (tstamp 592F70B4)
     (at 195.2 101.1 270)
-    (path /592F4FF9)
+    (path /59C5B739)
+    (attr smd)
     (fp_text reference SW1 (at 0 3.6 270) (layer F.Fab)
       (effects (font (size 1 1) (thickness 0.15)))
     )
@@ -1668,6 +1672,7 @@
   (module KiCad_Footprints:ZF_SW_PTS810 (layer F.Cu) (tedit 592F2DEF) (tstamp 592F70C4)
     (at 201.6 103.8 90)
     (path /592F4D36)
+    (attr smd)
     (fp_text reference SW2 (at 0 3.6 90) (layer F.Fab)
       (effects (font (size 1 1) (thickness 0.15)))
     )
@@ -1692,7 +1697,7 @@
       (net 32 "Net-(SW2-Pad4)"))
   )
 
-  (module KiCad_Footprints:ZF_CONN_JST_GH (layer B.Cu) (tedit 598DF7B9) (tstamp 58BA1A71)
+  (module KiCad_Footprints:ZF_CONN_JST_GH (layer B.Cu) (tedit 59C5929A) (tstamp 58BA1A71)
     (at 206.4 96.75 45)
     (path /58B9CE9E)
     (attr smd)
@@ -1720,7 +1725,7 @@
       (net 2 GND))
   )
 
-  (module KiCad_Footprints:ZF_CONN_JST_GH_5POS (layer B.Cu) (tedit 598DF7AC) (tstamp 598DFF9F)
+  (module KiCad_Footprints:ZF_CONN_JST_GH_5POS (layer B.Cu) (tedit 59C5928F) (tstamp 598DFF9F)
     (at 184 98.3 256)
     (path /598DF7CF)
     (attr smd)
@@ -1750,6 +1755,8 @@
       (net 5 +5V))
   )
 
+  (gr_line (start 164.78 111.95) (end 164.78 107.95) (layer F.Fab) (width 0.2))
+  (gr_line (start 166.78 109.95) (end 162.78 109.95) (layer F.Fab) (width 0.2))
   (gr_text POWER (at 184.9 95 346) (layer B.SilkS)
     (effects (font (size 1.2 1.2) (thickness 0.17)) (justify mirror))
   )
@@ -1757,7 +1764,7 @@
   (gr_line (start 208.5 105.5) (end 208.7 105.7) (layer F.SilkS) (width 0.2))
   (gr_line (start 164.78 97.04) (end 164.78 113.43) (layer Cmts.User) (width 0.1))
   (gr_line (start 205.28 109.95) (end 159.11 109.95) (layer Cmts.User) (width 0.1))
-  (gr_text "NOTES:\n1. FOOTPRINTS ORIENTED PER IPC-7351FC LEVEL B (PIN 1 IN LOWER LEFT)\n2. COMPONENT ROTATION IN DEGREES COUNTER-CLOCKWISE\n3. NOTE COMPONENTS ARE MOUNTED ON BOTH F.CU AND B.CU LAYER\n4. PCB IS 1.6mm FR4 RATED FOR ROHS REFLOW, 10Z COPPER, ENIG FINISH\n5. MATTE BLACK SOLDER MASK WITH WHITE SILKSCREEN\n6. SOLDER PASTE MUST BE ROHS COMPLIANT (LEAD-FREE)\n7. NO MARKS (E-TEST, QA, SERIAL NUMBER, ETC) ON FRONT (LOGO SIDE) OF BOARD\n8. BOARDS TO BE SHIPPED IN CUSTOMER-SUPPLIED FOAM TRAYS" (at 152 141) (layer F.Fab)
+  (gr_text "NOTES:\n1. FOOTPRINTS ORIENTED PER IPC-7351FC LEVEL B (PIN 1 IN LOWER LEFT)\n2. COMPONENT ROTATION IN DEGREES COUNTER-CLOCKWISE\n3. NOTE COMPONENTS ARE MOUNTED ON BOTH F.CU AND B.CU LAYER\n4. PCB IS 1.6mm FR4 RATED FOR ROHS REFLOW, 10Z COPPER, ENIG FINISH\n5. MATTE BLACK SOLDER MASK WITH WHITE SILKSCREEN\n6. SOLDER PASTE MUST BE ROHS COMPLIANT (LEAD-FREE)\n7. NO MARKS (E-TEST, QA, SERIAL NUMBER, ETC) ON FRONT (LOGO SIDE) OF BOARD\n8. BOARDS TO BE SHIPPED IN CUSTOMER-SUPPLIED FOAM TRAYS" (at 149.78 147.45) (layer F.Fab)
     (effects (font (size 1.5 1.5) (thickness 0.3)) (justify left))
   )
   (gr_line (start 167 112) (end 166 112) (layer F.Fab) (width 0.2))

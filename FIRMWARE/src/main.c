@@ -10,15 +10,15 @@
 #include "comm.h"
 #include "HAL.h"
 
-#define MAX_FIRE_TIME	6000 
-#define	MIN_FIRE_TIME	1000	 // 200 ms
-#define FIRE_TIME_RANGE	8000 // 1200 ms
+#define MAX_FIRE_TIME	200 
+#define	MIN_FIRE_TIME	30	 // 200 ms
+#define FIRE_TIME_RANGE	180 // 1200 ms
 
 #define BLINK_TIME			100
 #define DATA_TIME			10
-#define DEND_PING_TIME		3000 // 1000 ms
-#define	NID_PING_TIME		5000 // 1000 ms
-#define SEND_PING_TIME		2000
+#define DEND_PING_TIME		200 // 1000 ms
+#define	NID_PING_TIME		200 // 1000 ms
+#define SEND_PING_TIME		60
 #define BUTTON_PRESS_TIME	2
 
 static uint32_t fingerprint[3] __attribute__((section (".fingerprint"))) __attribute__ ((__used__)) = {
@@ -75,6 +75,8 @@ int main(void)
 	tim_setup();
 	adc_setup();
 	systick_setup(100000); // tick @ 0.1 ms
+	
+	// setup eeprom
 
 	MMIO32(FLASH_MEM_INTERFACE_BASE + FLASH_PEKEYR) = FLASH_PEKEY1;
 	MMIO32(FLASH_MEM_INTERFACE_BASE + FLASH_PEKEYR) = FLASH_PEKEY2;

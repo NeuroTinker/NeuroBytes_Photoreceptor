@@ -4,6 +4,8 @@
 
 volatile uint8_t tick = 0;
 volatile uint8_t main_tick = 0;
+volatile uint8_t read_tick = 0;
+
 
 uint8_t channel_array[] =  {1, 1, 1};
 
@@ -76,16 +78,29 @@ static const uint16_t gamma_lookup[1024] = {
 
 void sys_tick_handler(void)
 {
-	tick = 1;
+	
+	if (++tick >= 50){
+		main_tick = 1;
+		tick = 0;
+	}
+	
+	if (read_tick++ >= 2){
+		writeBit();
+		read_tick = 0;
+	}
+	
+	//readBit(read_tick);
+	
 }
 
 void systick_setup(int freq) 
 {
-	systick_set_clocksource(STK_CSR_CLKSOURCE_AHB);
-	STK_CVR = 0;
-// STM32F0 command:	systick_set_reload(rcc_ahb_frequency / freq);
-	systick_counter_enable();
-	systick_interrupt_enable();
+	systick_set_clocksource(STK_CSR_CLKSOURCE_EXT);
+    STK_CVR = 0;
+    //systick_set_reload(2 * xms);
+	systick_set_reload(180); //180
+    systick_counter_enable();
+    systick_interrupt_enable();
 }
 
 void clock_setup(void)
@@ -135,9 +150,9 @@ void gpio_setup(void)
 	setAsOutput(PORT_DARK_OUT, PIN_DARK_EX);
 	setAsOutput(PORT_LIGHT_OUT, PIN_LIGHT_EX);
 
-	nvic_enable_irq(NVIC_EXTI0_1_IRQ);
-	nvic_enable_irq(NVIC_EXTI2_3_IRQ);
-	nvic_enable_irq(NVIC_EXTI4_15_IRQ);
+	//nvic_enable_irq(NVIC_EXTI0_1_IRQ);
+	//nvic_enable_irq(NVIC_EXTI2_3_IRQ);
+	//nvic_enable_irq(NVIC_EXTI4_15_IRQ);
 
 	nvic_set_priority(NVIC_EXTI0_1_IRQ, 0);
 	nvic_set_priority(NVIC_EXTI2_3_IRQ, 0);
@@ -242,10 +257,9 @@ void tim_setup(void)
 
 void tim21_isr(void)
 {
-	main_tick = 1;
+	//main_tick = 1;
 
-	readInputs();
-	write();
+	//readInputs();
 
 	MMIO32((TIM21_BASE) + 0x10) &= ~(1<<0); //clear the interrupt register
 }

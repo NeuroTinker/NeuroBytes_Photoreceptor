@@ -13,13 +13,14 @@
 #define NUM_INPUTS 11
 #define DEND_PING_TIME		200 // 1000 ms
 #define	NID_PING_TIME		200 // 1000 ms
+
 #define NID_PING_KEEP_ALIVE     32
 
 
 #define BLINK_MESSAGE           0b10110001110001110000000000000000 // (ALL) (KEEP ALIVE=7) (NID) (BLINK) (no data)
-#define PULSE_MESSAGE           0b11111000010100110000000000000000 // (DOWNSTREAM) (KEEP ALIVE=1) (UPSTREAM) (PULSE) (no data)
+//#define PULSE_MESSAGE           0b11111000010100110000000000000000 // (DOWNSTREAM) (KEEP ALIVE=1) (UPSTREAM) (PULSE) (no data)
 #define DATA_MESSAGE            0b10000000000001000000000000000000 // (NID) (KEEP ALIVE=0) (CHANNEL= NONE) (DATA) (no data)
-#define DEND_PING               0b10010000010100010000000000000000 // (DOWNSTREAM) (KEEP ALIVE=1) (UPSTREAM) (PING) (no data)
+//#define DEND_PING               0b10010000010100010000000000000000 // (DOWNSTREAM) (KEEP ALIVE=1) (UPSTREAM) (PING) (no data)
 #define NID_PING                0b10110001110000010000000000000000 // (ALL) (KEEP ALIVE=7) (NID) (PING) (no data)
 #define NID_IDENTIFY_REQUEST    0b10110001110001010000000000000101 // (ALL) (KEEP ALIVE=7) (NID) (IDENTIFY) (data=0b101 : channel 2)
 
@@ -29,6 +30,9 @@
 #define SENDER_MASK             0b00000000001110000000000000000000
 #define HEADER_MASK             0b00000000000001110000000000000000
 #define DATA_MASK               0b00000000000000001111111111111111
+
+#define PULSE_MESSAGE           0b11111000000000000000000000000000
+#define DEND_PING               0b10110000000000000000000000000000
 
 #define IDENTIFY_TIME       200 // 1000 ms
 
@@ -169,7 +173,7 @@ extern uint8_t identify_channel;
 
 void readInputs(void); // The readInputs() function reads incoming messages and decides if it the data frame should be sent to a handler based off of sender id and message id.
 
-void write(void);
+void writeBit(void);
 void writeAll(void);
 void writeDownstream(void);
 void writeNID(void);
