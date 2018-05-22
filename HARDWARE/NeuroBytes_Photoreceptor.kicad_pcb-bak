@@ -3,7 +3,7 @@
   (general
     (links 62)
     (no_connects 0)
-    (area 149.78 73.8 246.637146 167.5)
+    (area 149.78 73.8 246.637146 159)
     (thickness 1.6)
     (drawings 222)
     (tracks 271)
@@ -99,7 +99,7 @@
       (mirror false)
       (drillshape 0)
       (scaleselection 1)
-      (outputdirectory ../../../NeuroTinker_RFQ_Sept2017/NeuroBytes_Photoreceptor/))
+      (outputdirectory /home/zach/Desktop/))
   )
 
   (net 0 "")
