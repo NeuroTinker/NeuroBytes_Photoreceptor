@@ -3,7 +3,7 @@
   (general
     (links 67)
     (no_connects 0)
-    (area 164.733488 90.077587 211.583735 110.008306)
+    (area 149.78 73.8 246.637146 159)
     (thickness 1.6)
     (drawings 221)
     (tracks 295)
@@ -76,7 +76,7 @@
     (grid_origin 164.78 109.95)
     (visible_elements FFFFFF7F)
     (pcbplotparams
-      (layerselection 0x200fc_80000001)
+      (layerselection 0x210fc_80000001)
       (usegerberextensions false)
       (excludeedgelayer true)
       (linewidth 0.100000)
@@ -99,7 +99,7 @@
       (mirror false)
       (drillshape 0)
       (scaleselection 1)
-      (outputdirectory /home/zach/Desktop/))
+      (outputdirectory Gerbers))
   )
 
   (net 0 "")
@@ -1758,6 +1758,7 @@
   (module KiCad_Footprints:ZF_SMD_SOT-353 (layer B.Cu) (tedit 59011580) (tstamp 5A836482)
     (at 194.18 100.75 180)
     (path /5A835A02)
+    (attr smd)
     (fp_text reference U4 (at 0 -7.300001 180) (layer B.SilkS) hide
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
     )

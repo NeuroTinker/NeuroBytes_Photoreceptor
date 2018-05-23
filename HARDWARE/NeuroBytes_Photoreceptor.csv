@@ -1,18 +1,4 @@
-Title,Photoreceptor
-Revision,D
-Date,2017-05-16
-Generated,Fri 22 Sep 2017 05:44:07 PM CDT
-Company,NeuroTinker LLC
-Comment 1,License: GPL v3
-Comment 2,
-Comment 3,
-Comment 4,
-Total Parts,21
-Total Unique Parts,13
-
-
-
-Ref,Qty,Value,Link,Mfr,Mfr Part #,Package,RoHS,Subs Allowed,
+Ref,Qty,Value,Link,Mfr,Mfr Part #,Package,RoHS,Subs Allowed
 C4 C5 C3 ,3,1u,https://www.digikey.com/product-detail/en/taiyo-yuden/LMK107B7105KA-T/587-1242-2-ND/930594,Taiyo Yuden,LMK107B7105KA-T,C0603,Yes,Yes
 C2 C6 C1 ,3,0u1,https://www.digikey.com/product-detail/en/taiyo-yuden/LMK105BJ104KV-F/587-1227-2-ND/930579,Taiyo Yuden,LMK105BJ104KV-F,C0402,Yes,Yes
 C7 ,1,10u,https://www.digikey.com/product-detail/en/taiyo-yuden/EMK316B7106KL-TD/587-2395-2-ND/2178914,Taiyo Yuden,EMK316B7106KL-TD,C1206,Yes,Yes
@@ -26,9 +12,10 @@ SW2 SW1 ,2,SW_PB_4term,https://www.digikey.com/product-detail/en/c-k/PTS810-SJM-
 U2 ,1,STM32L011Gx,http://www.mouser.com/ProductDetail/STMicroelectronics/STM32L011G4U6/?qs=sGAEpiMZZMuoKKEcg8mMKFZaGHZhaFFC%252b5Ex1OjcSxhBnExI6VEL3Q%3d%3d,ST Microelectronics,STM32L011G4U6,UFQFPN28,Yes,No
 U3 ,1,3v3 LDO,https://www.digikey.com/product-detail/en/on-semiconductor/NCP114BSN330T1G/NCP114BSN330T1GOSTR-ND/6560606,ON Semiconductor,NCP114BSN330T1G,SOT23-5L,Yes,Yes
 U1 ,1,APDS9007,https://www.digikey.com/product-detail/en/broadcom-limited/APDS-9007-020/516-1719-2-ND/1785429,Broadcom,APDS-9007-020,6SMD,Yes,No
-
-
-
-
-BOM made with KICAD_BOM_WIZARD (https://github.com/HashDefineElectronics/KiCad_BOM_Wizard.git)
-Generated Fri 22 Sep 2017 05:44:07 PM CDT
+U4 ,1,RClamp0503F,https://www.digikey.com/product-detail/en/semtech-corporation/RCLAMP0503F.TCT/RCLAMP0503F.TCTTR-ND/5113629,Semtech Corporation,RCLAMP0503F.TCT,5-TSSOP,Yes,No
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+BOM made with KICAD_BOM_WIZARD (https://github.com/HashDefineElectronics/KiCad_BOM_Wizard.git),,,,,,,,
+Generated Wed 23 May 2018 05:14:28 PM CDT,,,,,,,,

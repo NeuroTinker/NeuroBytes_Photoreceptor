@@ -930,7 +930,7 @@ Wire Wire Line
 	6350 6350 6350 5600
 Wire Wire Line
 	6350 5600 6600 5600
-Text GLabel 6150 5400 0    60   Input ~ 0
+Text GLabel 6150 5800 0    60   Input ~ 0
 SPAN
 Wire Wire Line
 	6150 5400 6600 5400
@@ -953,7 +953,7 @@ Wire Wire Line
 	7750 5050 7750 5400
 Wire Wire Line
 	7750 5400 7500 5400
-Text GLabel 6150 5800 0    60   Input ~ 0
+Text GLabel 6150 5400 0    60   Input ~ 0
 SENSE
 Wire Wire Line
 	7850 5800 7500 5800

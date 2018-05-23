@@ -1,0 +1,30 @@
+### Module positions - created on Wed May 23 17:15:44 2018 ###
+### Printed by Pcbnew version kicad 4.0.7-e2-6376~58~ubuntu14.04.1
+## Unit = mm, Angle = deg.
+## Side : All
+# Ref     Val              Package                      PosX       PosY       Rot    Side
+C1        0u1              C0402     			 9.0200    12.3500    0.0000  bottom
+C2        0u1              C0402    			39.9200     9.2000    0.0000  bottom
+C3        1u               C0603         		 9.0200    13.9500    0.0000  bottom
+C4        1u               C0603        		26.4700    13.4500  270.0000  bottom
+C5        1u               C0603        		30.9700    13.4500   90.0000  bottom
+C6        0u1              C0402    			31.5000     9.2000  270.0000  bottom
+C7        10u              C1206        		12.4200    13.9000  270.0000  bottom
+P1        JST_GH_4-POS     JST_GH_4POS            	41.6200    13.2000   45.0000  bottom
+P2        JST_GH_4-POS     JST_GH_4POS           	41.6200     5.1000  315.0000  bottom
+P3        JST_GH_5-pos     ZF_CONN_JST_GH_5POS       	19.2200    11.6500  256.0000  bottom
+R1        10k              R0402         		 9.0200    15.6500    0.0000  bottom
+R2        10               R0402        		37.7200    13.3500  225.0000  bottom
+R3        10               R0402        		37.7200     4.9500  135.0000  bottom
+R4        JMP              R0402        		38.4200    11.8500  135.0000  bottom
+REF**     ZF_Fiducial-1mm  Fiducial-1mm           	15.0200    15.4500    0.0000  bottom
+REF**     ZF_Fiducial-1mm  Fiducial-1mm           	36.7200    15.4500    0.0000  bottom
+U2        STM32L011Gx      UFQFPN28-050        		35.2200     9.2000  270.0000  bottom
+U3        3v3 LDO          SOT23-5L               	28.7200    13.4500    0.0000  bottom
+U4        RClamp0503F      SOT-353            		29.4000     9.2000  180.0000  bottom
+D1        LED              L0402        		43.0200    14.7500  135.0000  top
+D2        LED              L0402        		43.0200     3.5500  225.0000  top
+SW1       SW_PB_4term      4-SMT            		30.4200     8.8500  270.0000  top
+SW2       SW_PB_4term      4-SMT              		36.8200     6.1500   90.0000  top
+U1        APDS9007         6-SMT        		 3.2200    13.9500  270.0000  top
+## End

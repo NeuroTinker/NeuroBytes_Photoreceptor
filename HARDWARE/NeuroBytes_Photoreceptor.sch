@@ -910,8 +910,12 @@ F 0 "U4" H 7050 5200 60  0000 C CNN
 F 1 "RClamp0503F" H 7050 6000 60  0000 C CNN
 F 2 "KiCad_Footprints:ZF_SMD_SOT-353" H 7200 5450 60  0001 C CNN
 F 3 "" H 7200 5450 60  0001 C CNN
-F 4 "No" H 7050 5600 60  0001 C CNN "Subs Allowed"
-F 5 "Yes" H 7050 5600 60  0001 C CNN "RoHS"
+F 4 "Semtech Corporation" H 7050 5600 60  0001 C CNN "Mfr"
+F 5 "RCLAMP0503F.TCT" H 7050 5600 60  0001 C CNN "Mfr Part #"
+F 6 "5-TSSOP" H 7050 5600 60  0001 C CNN "Package"
+F 7 "https://www.digikey.com/product-detail/en/semtech-corporation/RCLAMP0503F.TCT/RCLAMP0503F.TCTTR-ND/5113629" H 7050 5600 60  0001 C CNN "Link"
+F 8 "No" H 7050 5600 60  0001 C CNN "Subs Allowed"
+F 9 "Yes" H 7050 5600 60  0001 C CNN "RoHS"
 	1    7050 5600
 	1    0    0    -1  
 $EndComp
