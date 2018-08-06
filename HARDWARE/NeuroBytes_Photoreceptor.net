@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source /home/zach/Documents/NeuroTinker/Products/NeuroBytes_Photoreceptor/HARDWARE/NeuroBytes_Photoreceptor.sch)
-    (date "Tue 13 Feb 2018 03:44:02 PM CST")
+    (date "Mon 06 Aug 2018 06:08:22 PM CDT")
     (tool "Eeschema 4.0.7-e2-6376~58~ubuntu14.04.1")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -43,7 +43,7 @@
       (tstamp 58B9AEFC))
     (comp (ref C4)
       (value 1u)
-      (footprint KiCad_Footprints:ZF_SMD_NonPol_0603)
+      (footprint Capacitors_SMD:C_0603_HandSoldering)
       (fields
         (field (name Mfr) "Taiyo Yuden")
         (field (name "Mfr Part #") LMK107B7105KA-T)
@@ -147,7 +147,7 @@
       (tstamp 590B49C5))
     (comp (ref C7)
       (value 10u)
-      (footprint KiCad_Footprints:ZF_SMD_nonpol_1206)
+      (footprint Capacitors_SMD:C_1206)
       (fields
         (field (name Mfr) "Taiyo Yuden")
         (field (name "Mfr Part #") EMK316B7106KL-TD)
@@ -251,7 +251,7 @@
       (tstamp 59C5B739))
     (comp (ref C5)
       (value 1u)
-      (footprint KiCad_Footprints:ZF_SMD_NonPol_0603)
+      (footprint Capacitors_SMD:C_0603_HandSoldering)
       (fields
         (field (name Mfr) "Taiyo Yuden")
         (field (name "Mfr Part #") LMK107B7105KA-T)
@@ -264,7 +264,7 @@
       (tstamp 59C5C1B0))
     (comp (ref C3)
       (value 1u)
-      (footprint KiCad_Footprints:ZF_SMD_NonPol_0603)
+      (footprint Capacitors_SMD:C_0603_HandSoldering)
       (fields
         (field (name Mfr) "Taiyo Yuden")
         (field (name "Mfr Part #") LMK107B7105KA-T)
@@ -292,6 +292,10 @@
       (value RClamp0503F)
       (footprint KiCad_Footprints:ZF_SMD_SOT-353)
       (fields
+        (field (name Mfr) "Semtech Corporation")
+        (field (name "Mfr Part #") RCLAMP0503F.TCT)
+        (field (name Package) 5-TSSOP)
+        (field (name Link) https://www.digikey.com/product-detail/en/semtech-corporation/RCLAMP0503F.TCT/RCLAMP0503F.TCTTR-ND/5113629)
         (field (name "Subs Allowed") No)
         (field (name RoHS) Yes))
       (libsource (lib NeuroTinker_schematic_symbols) (part RClamp0503F))
@@ -446,7 +450,7 @@
     (library (logical device)
       (uri /usr/share/kicad/library/device.lib))
     (library (logical NeuroTinker_schematic_symbols)
-      (uri /home/zach/Documents/NeuroTinker/Products/NeuroBytes_Photoreceptor/HARDWARE/Schematic_Lib/NeuroTinker_schematic_symbols.lib))
+      (uri Schematic_Lib/NeuroTinker_schematic_symbols.lib))
     (library (logical NeuroBytes_Photoreceptor-cache)
       (uri /home/zach/Documents/NeuroTinker/Products/NeuroBytes_Photoreceptor/HARDWARE/NeuroBytes_Photoreceptor-cache.lib)))
   (nets
