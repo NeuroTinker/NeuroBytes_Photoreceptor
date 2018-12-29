@@ -104,13 +104,19 @@ int main(void)
 
 			if (readButton(0) > 0)
 			{
+				if (zero > span) span = temp + 1;
 				zero = temp;
 				eepromProgram(ZERO_ADDRESS, zero);
 			}
 
 			if (readButton(1) > 0)
 			{
-				span = temp;
+				if (span < zero) {
+					zero = temp;
+					span = temp+1;
+				} else {
+					span = temp;
+				}
 				eepromProgram(SPAN_ADDRESS, span);
 			}
 
